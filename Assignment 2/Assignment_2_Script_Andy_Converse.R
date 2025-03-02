@@ -54,15 +54,23 @@ dim(train_data)
 dim(test_data)
 
 # Fit Logistical regression model
-log_model <- glm(admit ~ gpa + gre + rank,
-                 data = admit_data,
-                 family = binomial)
+log_model <- glm(admit ~ 
+                   gpa + 
+                   gre + 
+                   rank,
+                 data = 
+                   admit_data,
+                 family = 
+                   binomial)
 summary(log_model)
 
 pred_probs <- predict(log_model,
                       test_data,
-                      type = "response")
-pred_admit <- ifelse(pred_probs >0.5, 1, 0)
+                      type = 
+                        "response")
+pred_admit <- ifelse(pred_probs > 0.5, 
+                     1, 
+                     0)
 
 head(pred_probs)
 head(pred_admit)
