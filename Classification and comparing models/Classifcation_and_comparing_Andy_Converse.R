@@ -24,16 +24,16 @@ dataset_clean <- na.omit(dataset)
 
 ## 2. There are a total of 3517 missing values. They only come from 2 variables, pct_card_over_50_uti and rep_income.
 ##    55% of missing values are from pct_card_over_50_uti and 44.32% are from rep_income.
-##    To deal with the missing values I cleaned the dataset by removing all observations with a missing value.
+##    To deal with the missing values I cleaned the data set by removing all observations with a missing value.
 
 ## 3. 
 sum(duplicated(dataset_clean))
 str(dataset)
 
-## 3. There are no duplicates in the cleaned dataset. 
-##    Of the 21 variables they either a number or interger data type. However, there is one characters variable.
+## 3. There are no duplicates in the cleaned data set. 
+##    Of the 21 variables they either a number or integer data type. However, there is one characters variable.
 
-## 4. I'd handle dupelicates by deleting all except the first observation. 
+## 4. I'd handle duplicates by deleting all except the first observation. 
 ##    As for mis-classified variables I would change entire columns to the correct data type to ensure that the column is correct.
 
 ## 5. 
@@ -47,12 +47,12 @@ ggplot(data = dataset_clean,
        theme_dark()
        )
 
-## 5. The scatterplot create compares total available credit against the age of the observations first credit product in months.
+## 5. The scatter plot create compares total available credit against the age of the observations first credit product in months.
 
 ## 6. 
 table(dataset_clean$rep_education)/16653
 
-## 6. Graduates are under representated in this dataset as they only make up 12.1% of the dataset.
+## 6. Graduates are under represented in this dataset as they only make up 12.1% of the data set.
 
 ## 7.
 table(dataset_clean$Def_ind)/16653
@@ -68,7 +68,7 @@ hist(dataset_clean$rep_income,
      col = "green",
      border = "black")
 
-## 8. I would describe "rep_income"'s distribution as approximatly normal.
+## 8. I would describe "rep_income"'s distribution as approximately normal.
 
 ## 9. 
 group_default.by.edu <- dataset_clean %>%
@@ -84,7 +84,7 @@ group_default.by.edu
 
 ## 10. Nothing else stands out to me.
 
-### Seperate training and test sets
+### Separate training and test sets
 set.seed(2)
 split <- sample.split(dataset_clean$Def_ind,
                       SplitRatio = 0.8)
@@ -146,7 +146,8 @@ plot(roc_curve,
      col = "dodgerblue")
 
 auc_val <- auc(roc_curve)
-print(paste("AUC:", auc_val))
+print(paste("AUC:", 
+            auc_val))
 
 ### KNN model
 train_data$Def_ind <- as.factor(train_data$Def_ind)
